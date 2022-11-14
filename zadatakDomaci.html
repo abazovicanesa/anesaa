@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Anesa " />
+    <meta name="description" content="Program za definisanje racuna" />
+    <title>Uplata</title>
+  
+    <link rel="stylesheet" href="zadatakDomaci.css" type="text/css" />
+    
+  
+  </head>
+
+  
+
+<div style="background-color: rgba(255, 216, 88, 0.993); height: 90px;" >
+  <br>
+<h1 align="center" style="font-family:Arial">NEKA POPUST BUDE TVOJ!</h1>
+</div>
+
+<br><br>
+
+
+<img src="energy.png" width="100" height="100">
+
+    <section  style="padding-left 60%;padding-right: 20%; width: 60%; background-color: rgba(255, 227, 88, 0.629); border-width: 30px; border-color:rgb(235, 159, 45);">
+
+      <form action="" method="post" >
+        <fieldset>
+          <legend></legend>
+          <p>
+            <label for="iznos" style="font-size: large; font-weight: bold;">Iznos racuna:</label>
+            <input
+              type="text"
+              name="iznos_racuna"
+              id="iznos_racuna"
+              placeholder="Iznos racuna"
+              required
+              autofocus
+              pattern="[0-9]+([\.,][0-9]+)?"
+             />€
+          </p>
+          <p>
+            <label for="datum" style="font-size: large;font-weight: bold;">Datum uplate:</label>
+            <input
+              type="date"
+              name="datum_placanja"
+              id="datum_placanja"
+              placeholder="Datum placanja"
+              required
+            />
+          </p>
+          <input style="font-size: large; font-weight: bold;" type="submit" value="Submit" onclick="formdata()" />
+        </fieldset>
+      </form>
+    </section>
+
+    <script type="text/javascript">
+      function formdata1() {
+        var iznos_racuna = document.getElementById("iznos_racuna").value;
+        var datum_racuna = document.getElementById("datum_placanja").value;
+
+        var today = new Date();
+        var date_5_months_ago = new Date();
+        var date_inserted = new Date(datum_placanja);
+
+        date_5_months_ago.setMonth(today.getMonth() - 5);
+
+        alert("Iznos racuna " + iznos_racuna);
+        alert("Date placanja " + date_inserted);
+        alert("Today " + today);
+        alert("Date 5 months ago " + date_5_months_ago);
+
+        if (date_inserted > date_5_months_ago) {
+      alert(  
+            "Cestitamo, dobili ste 10% popusta, Vas iznos iznosi:  " +
+              iznos_racuna * 0.9 +
+              "€"
+          ) ;
+        } else {
+          alert("Nalazost niste platili na vrijeme i nemoguce je ostvariti popust :( ");
+        }
+      }
+
+      function formdata() {
+        var iznos_racuna = document.getElementById("iznos_racuna").value;
+        var datum_placanja = document.getElementById("datum_placanja").value;
+
+        var this_month = new Date();
+        this_month.setDate(5);
+
+        var date_inserted = new Date(datum_placanja);
+
+        alert("Iznos racuna " + iznos_racuna);
+
+        if (date_inserted < this_month) {
+          alert(
+            "Cestitamo, dobili ste 10% popusta, Vas iznos iznosi: " +
+              iznos_racuna * 0.9 +
+              "€"
+          );
+        } else {
+          alert("Nalazost niste platili na vrijeme i nemoguce je ostvariti popust :( ");
+        }
+      }
+    </script>
+    </body>
+</br></br>
+</br></br>
+<body>
+<h5> Budi i ti dio naseg tima! - Anesa Abazovic</h5>
+  </body>
+
+
+</html>
